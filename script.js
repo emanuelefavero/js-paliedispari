@@ -79,11 +79,18 @@ function getRandomNumber(min, max) {
  * Verifica se un numero è pari.
  *
  * @param {number} num - Il numero da verificare
- * @return {boolean} True se il numero è pari, false altrimenti
+ * @returns {boolean} True se il numero è pari, false altrimenti
  */
 function isEven(num) {
   return num % 2 === 0;
 }
+
+// Costanti per il programma 02
+const EVEN = 'pari';
+const ODD = 'dispari';
+const VALID_CHOICES = [EVEN, ODD];
+const MIN_NUMBER = 1;
+const MAX_NUMBER = 5;
 
 /**
  * Gestisce l'esercizio Pari e Dispari.
@@ -91,26 +98,46 @@ function isEven(num) {
  * @returns {void}
  */
 function playEvenOdd() {
-  // Input da utente (pari o dispari)
-  const userChoice = prompt('Scegli "pari" o "dispari"');
+  // Chiedi all'utente di scegliere tra pari e dispari
+  const userChoice = String(prompt(`Scegli ${EVEN} o ${ODD}`))
+    .trim()
+    .toLowerCase();
 
-  // Input da utente (numero da 1 a 5)
-  const userNumber = parseInt(prompt('Inserisci un numero da 1 a 5'), 10);
+  // Validazione scelta dell'utente
+  if (!VALID_CHOICES.includes(userChoice)) {
+    alert(`Scelta non valida. Per favore, scegli "${EVEN}" o "${ODD}".`);
+    return;
+  }
 
-  // TODO Validazione inputs
+  // Chiedi all'utente di inserire un numero da 1 a 5
+  const userNumber = Number(
+    prompt(`Inserisci un numero da ${MIN_NUMBER} a ${MAX_NUMBER}`),
+  );
+
+  // Validazione numero dell'utente
+  if (
+    !Number.isInteger(userNumber) ||
+    userNumber < MIN_NUMBER ||
+    userNumber > MAX_NUMBER
+  ) {
+    alert(
+      `Numero non valido. Per favore, inserisci un numero da ${MIN_NUMBER} a ${MAX_NUMBER}.`,
+    );
+    return;
+  }
 
   // Genera un numero random per il computer
-  const randomNumber = getRandomNumber(1, 5);
+  const computerNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
 
   // Calcola la somma dei due numeri
-  const sum = userNumber + randomNumber;
+  const sum = userNumber + computerNumber;
 
-  // Stabilisce se la somma è pari o dispari
+  // Determina se la somma è pari o dispari
   const isSumEven = isEven(sum);
 
   // Prepara il messaggio da mostrare all'utente
-  const sumType = isSumEven ? 'pari' : 'dispari';
-  const message = `Tu: ${userNumber}, computer: ${randomNumber}. Somma: ${sum} (${sumType}).`;
+  const sumType = isSumEven ? EVEN : ODD;
+  const message = `Tu: ${userNumber}, computer: ${computerNumber}. Somma: ${sum} (${sumType}).`;
 
   // Dichiara chi ha vinto
   if (userChoice === sumType) {
@@ -120,7 +147,7 @@ function playEvenOdd() {
   }
 }
 
-// ===============================
+// ==========================
 // AVVIO DEI PROGRAMMI
 
 // playPalindrome(); // 01 - Palindroma
