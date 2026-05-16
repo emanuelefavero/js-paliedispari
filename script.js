@@ -64,7 +64,29 @@ function playPalindrome() {
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-function playEvenOdd() {}
+/**
+ * Genera un numero random tra min e max (inclusi).
+ * @param {number} min - Il numero minimo (incluso)
+ * @param {number} max - Il numero massimo (incluso)
+ * @returns {number} Un numero random tra min e max
+ */
+function getRandomNumber(min, max) {}
+
+/**
+ * Verifica se un numero è pari.
+ * @param {number} num - Il numero da verificare
+ * @return {boolean} True se il numero è pari, false altrimenti
+ */
+function isEven(num) {}
+
+function playEvenOdd() {
+  // Scelta utente pari o dispari
+  // Prendi input da utente (numero da 1 a 5)
+  // Genera un numero random (da 1 a 5), usando una funzione
+  // Somma i due numeri
+  // Stabilisci se la somma dei due numeri e' pari o dispari (altra funzione)
+  // Dichiara chi ha vinto
+}
 
 // ===============================
 // AVVIO DEI PROGRAMMI
