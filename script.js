@@ -70,7 +70,9 @@ function playPalindrome() {
  * @param {number} max - Il numero massimo (incluso)
  * @returns {number} Un numero random tra min e max
  */
-function getRandomNumber(min, max) {}
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 /**
  * Verifica se un numero è pari.
@@ -91,5 +93,5 @@ function playEvenOdd() {
 // ===============================
 // AVVIO DEI PROGRAMMI
 
-playPalindrome(); // 01 - Palindroma
+// playPalindrome(); // 01 - Palindroma
 playEvenOdd(); // 02 - Pari e Dispari
