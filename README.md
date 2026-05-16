@@ -2,6 +2,8 @@
 
 Esercizio sulle funzioni in JavaScript dal mio corso Web Dev.
 
+> Nota: sul branch `functional` è disponibile una versione alternativa con ES Modules e un approccio più orientato alle funzioni pure.
+
 ## Come eseguire gli esercizi
 
 La soluzione si trova in `script.js`.
