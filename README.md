@@ -2,9 +2,11 @@
 
 Esercizio sulle funzioni in JavaScript dal mio corso Web Dev.
 
+> Nota branch `functional`: questa versione usa ES Modules. Per eseguirla, aprire il progetto con Live Server o un server locale.
+
 ## Come eseguire gli esercizi
 
-La soluzione si trova in `script.js`.
+L'entry point della soluzione si trova in `js/script.js`.
 
 Alla fine del file si può scegliere quale esercizio avviare abilitando le chiamate:
 
@@ -30,8 +32,9 @@ playPalindrome(); // Palindroma
 
 ## Decisioni Tecniche
 
-- Ho mantenuto entrambi gli esercizi in un unico `script.js`, semplificando e evitando di usare ES Modules, cosi' il progetto funziona anche senza un server locale.
-- Ho diviso il file in sezioni e funzioni `play` per tenere separati i due esercizi.
+- Ho separato i due esercizi in moduli JavaScript dedicati dentro la cartella `js/`.
+- Ho usato `js/script.js` come entry point per importare e avviare gli esercizi.
+- Ho isolato le funzioni pure dalla parte impura che usa `prompt`, `alert` e `Math.random`.
 - Per `isPalindrome` ho usato l'approccio con due puntatori.
 - Per Pari e Dispari ho usato funzioni dedicate per generare il numero casuale e verificare se un numero è pari.
 - Ho aggiunto una validazione base degli input.
