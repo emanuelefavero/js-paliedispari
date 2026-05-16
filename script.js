@@ -79,7 +79,9 @@ function getRandomNumber(min, max) {
  * @param {number} num - Il numero da verificare
  * @return {boolean} True se il numero è pari, false altrimenti
  */
-function isEven(num) {}
+function isEven(num) {
+  return num % 2 === 0;
+}
 
 function playEvenOdd() {
   // Scelta utente pari o dispari
