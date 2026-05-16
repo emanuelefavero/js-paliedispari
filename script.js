@@ -32,11 +32,11 @@ function isPalindrome(word) {
 /**
  * Verifica se l'input è una stringa non vuota.
  *
- * @param {any} input - L'input da verificare.
+ * @param {any} value - Il valore da verificare.
  * @returns {boolean} True se l'input è valido, false altrimenti.
  */
-function isValidInput(input) {
-  return typeof input === 'string' && input.trim() !== '';
+function isValidString(value) {
+  return typeof value === 'string' && value.trim() !== '';
 }
 
 /**
@@ -57,7 +57,7 @@ function normalizeWord(word) {
 function playPalindrome() {
   const input = prompt('Inserisci una parola e ti dirò se è palindroma o no');
 
-  if (!isValidInput(input)) {
+  if (!isValidString(input)) {
     alert('Per favore, inserisci una parola valida');
     return;
   }
