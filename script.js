@@ -30,6 +30,26 @@ function isPalindrome(word) {
 }
 
 /**
+ * Verifica se l'input è una stringa non vuota.
+ *
+ * @param {any} input - L'input da verificare.
+ * @returns {boolean} True se l'input è valido, false altrimenti.
+ */
+function isValidInput(input) {
+  return typeof input === 'string' && input.trim() !== '';
+}
+
+/**
+ * Normalizza una parola rimuovendo spazi e convertendo in minuscolo.
+ *
+ * @param {string} word - La parola da normalizzare.
+ * @returns {string} La parola normalizzata.
+ */
+function normalizeWord(word) {
+  return word.trim().toLowerCase();
+}
+
+/**
  * Gestisce l'esercizio Palindroma.
  *
  * @returns {void}
@@ -37,12 +57,12 @@ function isPalindrome(word) {
 function playPalindrome() {
   const input = prompt('Inserisci una parola e ti dirò se è palindroma o no');
 
-  if (input === null || input.trim() === '') {
+  if (!isValidInput(input)) {
     alert('Per favore, inserisci una parola valida');
     return;
   }
 
-  const normalizedWord = input.trim().toLowerCase();
+  const normalizedWord = normalizeWord(input);
 
   if (isPalindrome(normalizedWord)) {
     alert('La parola è palindroma');
@@ -55,7 +75,6 @@ function playPalindrome() {
 
 const EVEN = 'pari';
 const ODD = 'dispari';
-const VALID_CHOICES = [EVEN, ODD];
 const MIN_NUMBER = 1;
 const MAX_NUMBER = 5;
 
@@ -81,6 +100,39 @@ function isEven(num) {
 }
 
 /**
+ * Verifica se la scelta dell'utente è valida.
+ *
+ * @param {string} choice - La scelta dell'utente.
+ * @returns {boolean} True se la scelta è valida, false altrimenti.
+ */
+function isValidChoice(choice) {
+  const validChoices = [EVEN, ODD];
+
+  return validChoices.includes(choice);
+}
+
+/**
+ * Verifica se il numero dell'utente è valido.
+ *
+ * @param {number} num - Il numero da verificare.
+ * @returns {boolean} True se il numero è valido, false altrimenti.
+ */
+function isValidUserNumber(num) {
+  return Number.isInteger(num) && num >= MIN_NUMBER && num <= MAX_NUMBER;
+}
+
+/**
+ * Verifica se la scelta dell'utente corrisponde al risultato della somma.
+ *
+ * @param {string} userChoice - La scelta dell'utente.
+ * @param {string} sumType - Il tipo della somma: pari o dispari.
+ * @returns {boolean} True se l'utente ha vinto, false altrimenti.
+ */
+function isUserWinner(userChoice, sumType) {
+  return userChoice === sumType;
+}
+
+/**
  * Gestisce l'esercizio Pari e Dispari.
  *
  * @returns {void}
@@ -90,7 +142,7 @@ function playEvenOdd() {
     .trim()
     .toLowerCase();
 
-  if (!VALID_CHOICES.includes(userChoice)) {
+  if (!isValidChoice(userChoice)) {
     alert(`Scelta non valida. Per favore, scegli "${EVEN}" o "${ODD}".`);
     return;
   }
@@ -99,11 +151,7 @@ function playEvenOdd() {
     prompt(`Inserisci un numero da ${MIN_NUMBER} a ${MAX_NUMBER}`),
   );
 
-  if (
-    !Number.isInteger(userNumber) ||
-    userNumber < MIN_NUMBER ||
-    userNumber > MAX_NUMBER
-  ) {
+  if (!isValidUserNumber(userNumber)) {
     alert(
       `Numero non valido. Per favore, inserisci un numero intero da ${MIN_NUMBER} a ${MAX_NUMBER}.`,
     );
@@ -117,7 +165,7 @@ function playEvenOdd() {
 
   const message = `Tu: ${userNumber}, computer: ${computerNumber}. Somma: ${sum} (${sumType}).`;
 
-  if (userChoice === sumType) {
+  if (isUserWinner(userChoice, sumType)) {
     alert(`Hai vinto! ${message}`);
   } else {
     alert(`Hai perso! ${message}`);
