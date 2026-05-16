@@ -10,8 +10,8 @@
 /**
  * Verifica se un testo è palindromo.
  *
- * @param {string} text - Il testo da controllare.
- * @returns {boolean} True se il testo è palindromo, false altrimenti.
+ * @param {string} text
+ * @returns {boolean}
  */
 function isPalindrome(text) {
   let left = 0;
@@ -32,18 +32,18 @@ function isPalindrome(text) {
 /**
  * Verifica se l'input è una stringa non vuota.
  *
- * @param {any} value - Il valore da verificare.
- * @returns {boolean} True se l'input è valido, false altrimenti.
+ * @param {any} value
+ * @returns {boolean}
  */
 function isValidString(value) {
   return typeof value === 'string' && value.trim() !== '';
 }
 
 /**
- * Normalizza un testo rimuovendo spazi e convertendo in minuscolo.
+ * Normalizza un testo.
  *
- * @param {string} text - Il testo da normalizzare.
- * @returns {string} Il testo normalizzato.
+ * @param {string} text
+ * @returns {string}
  */
 function normalizeText(text) {
   return text.trim().toLowerCase().split(' ').join('');
@@ -84,9 +84,9 @@ const MAX_NUMBER = 5;
 /**
  * Genera un numero intero casuale tra min e max (inclusi).
  *
- * @param {number} min - Valore minimo incluso.
- * @param {number} max - Valore massimo incluso.
- * @returns {number} Un numero intero casuale tra min e max.
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
  */
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -95,8 +95,8 @@ function getRandomNumber(min, max) {
 /**
  * Verifica se un numero è pari.
  *
- * @param {number} num - Il numero da verificare.
- * @returns {boolean} True se il numero è pari, false altrimenti.
+ * @param {number} num
+ * @returns {boolean}
  */
 function isEven(num) {
   return num % 2 === 0;
@@ -105,8 +105,8 @@ function isEven(num) {
 /**
  * Verifica se la scelta dell'utente è valida.
  *
- * @param {string} choice - La scelta dell'utente.
- * @returns {boolean} True se la scelta è valida, false altrimenti.
+ * @param {string} choice
+ * @returns {boolean}
  */
 function isValidChoice(choice) {
   const validChoices = [EVEN, ODD];
@@ -117,8 +117,8 @@ function isValidChoice(choice) {
 /**
  * Verifica se il numero dell'utente è valido.
  *
- * @param {number} num - Il numero da verificare.
- * @returns {boolean} True se il numero è valido, false altrimenti.
+ * @param {number} num
+ * @returns {boolean}
  */
 function isValidUserNumber(num) {
   return Number.isInteger(num) && num >= MIN_NUMBER && num <= MAX_NUMBER;
@@ -127,9 +127,9 @@ function isValidUserNumber(num) {
 /**
  * Verifica se la scelta dell'utente corrisponde al risultato della somma.
  *
- * @param {string} userChoice - La scelta dell'utente.
- * @param {string} sumType - Il tipo della somma: pari o dispari.
- * @returns {boolean} True se l'utente ha vinto, false altrimenti.
+ * @param {string} userChoice
+ * @param {string} sumType
+ * @returns {boolean}
  */
 function isUserWinner(userChoice, sumType) {
   return userChoice === sumType;
