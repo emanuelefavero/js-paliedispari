@@ -1,7 +1,7 @@
 /**
  * @fileoverview Soluzioni Esercizi JS Palindroma e Pari e Dispari.
  *
- * Nota: per eseguire un esercizio, chiama la funzione corrispondente
+ * Nota: per eseguire un esercizio, abilita la chiamata corrispondente
  * alla fine del file: `playPalindrome()` o `playEvenOdd()`.
  */
 
