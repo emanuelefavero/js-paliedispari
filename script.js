@@ -66,6 +66,7 @@ function playPalindrome() {
 
 /**
  * Genera un numero random tra min e max (inclusi).
+ *
  * @param {number} min - Il numero minimo (incluso)
  * @param {number} max - Il numero massimo (incluso)
  * @returns {number} Un numero random tra min e max
@@ -76,6 +77,7 @@ function getRandomNumber(min, max) {
 
 /**
  * Verifica se un numero è pari.
+ *
  * @param {number} num - Il numero da verificare
  * @return {boolean} True se il numero è pari, false altrimenti
  */
@@ -83,13 +85,39 @@ function isEven(num) {
   return num % 2 === 0;
 }
 
+/**
+ * Gestisce l'esercizio Pari e Dispari.
+ *
+ * @returns {void}
+ */
 function playEvenOdd() {
-  // Scelta utente pari o dispari
-  // Prendi input da utente (numero da 1 a 5)
-  // Genera un numero random (da 1 a 5), usando una funzione
-  // Somma i due numeri
-  // Stabilisci se la somma dei due numeri e' pari o dispari (altra funzione)
+  // Input da utente (pari o dispari)
+  const userChoice = prompt('Scegli "pari" o "dispari"');
+
+  // Input da utente (numero da 1 a 5)
+  const userNumber = parseInt(prompt('Inserisci un numero da 1 a 5'), 10);
+
+  // TODO Validazione inputs
+
+  // Genera un numero random per il computer
+  const randomNumber = getRandomNumber(1, 5);
+
+  // Calcola la somma dei due numeri
+  const sum = userNumber + randomNumber;
+
+  // Stabilisce se la somma è pari o dispari
+  const isSumEven = isEven(sum);
+
+  // Prepara il messaggio da mostrare all'utente
+  const sumType = isSumEven ? 'pari' : 'dispari';
+  const message = `Tu: ${userNumber}, computer: ${randomNumber}. Somma: ${sum} (${sumType}).`;
+
   // Dichiara chi ha vinto
+  if (userChoice === sumType) {
+    alert(`Hai vinto! ${message}`);
+  } else {
+    alert(`Hai perso! ${message}`);
+  }
 }
 
 // ===============================
