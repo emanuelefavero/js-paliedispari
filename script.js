@@ -8,17 +8,17 @@
 // --- Palindroma ------------------------------------------------------------
 
 /**
- * Verifica se una parola è palindroma.
+ * Verifica se un testo è palindromo.
  *
- * @param {string} word - La parola da controllare.
- * @returns {boolean} True se la parola è palindroma, false altrimenti.
+ * @param {string} text - Il testo da controllare.
+ * @returns {boolean} True se il testo è palindromo, false altrimenti.
  */
-function isPalindrome(word) {
+function isPalindrome(text) {
   let left = 0;
-  let right = word.length - 1;
+  let right = text.length - 1;
 
   while (left < right) {
-    if (word[left] !== word[right]) {
+    if (text[left] !== text[right]) {
       return false;
     }
 
@@ -40,13 +40,13 @@ function isValidString(value) {
 }
 
 /**
- * Normalizza una parola rimuovendo spazi e convertendo in minuscolo.
+ * Normalizza un testo rimuovendo spazi e convertendo in minuscolo.
  *
- * @param {string} word - La parola da normalizzare.
- * @returns {string} La parola normalizzata.
+ * @param {string} text - Il testo da normalizzare.
+ * @returns {string} Il testo normalizzato.
  */
-function normalizeWord(word) {
-  return word.trim().toLowerCase();
+function normalizeText(text) {
+  return text.trim().toLowerCase().split(' ').join('');
 }
 
 /**
@@ -55,19 +55,22 @@ function normalizeWord(word) {
  * @returns {void}
  */
 function playPalindrome() {
-  const input = prompt('Inserisci una parola e ti dirò se è palindroma o no');
+  const input = prompt(
+    'Inserisci una parola o una frase e ti dirò se è palindroma o no',
+  );
 
   if (!isValidString(input)) {
     alert('Per favore, inserisci una parola valida');
     return;
   }
 
-  const normalizedWord = normalizeWord(input);
+  const trimmedInput = input.trim();
+  const normalizedText = normalizeText(trimmedInput);
 
-  if (isPalindrome(normalizedWord)) {
-    alert('La parola è palindroma');
+  if (isPalindrome(normalizedText)) {
+    alert(`"${trimmedInput}" è palindromo`);
   } else {
-    alert('La parola non è palindroma');
+    alert(`"${trimmedInput}" non è palindromo`);
   }
 }
 
