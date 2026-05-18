@@ -14,18 +14,11 @@
  * @returns {boolean}
  */
 function isPalindrome(text) {
-  let left = 0;
-  let right = text.length - 1;
+  const length = text.length;
 
-  while (left < right) {
-    if (text[left] !== text[right]) {
-      return false;
-    }
-
-    left++;
-    right--;
+  for (let i = 0; i < length / 2; i++) {
+    if (text[i] !== text[length - 1 - i]) return false;
   }
-
   return true;
 }
 
@@ -68,9 +61,9 @@ function playPalindrome() {
   const normalizedText = normalizeText(trimmedInput);
 
   if (isPalindrome(normalizedText)) {
-    alert(`"${trimmedInput}" è palindromo`);
+    alert(`"${trimmedInput}" è palindroma`);
   } else {
-    alert(`"${trimmedInput}" non è palindromo`);
+    alert(`"${trimmedInput}" non è palindroma`);
   }
 }
 
